@@ -1483,3 +1483,8 @@ select.form-control {
 .pointer-events-all {
   pointer-events: all;
 }
+
+#map {
+        height: 500px; /* Adjust height */
+        width: 100%;   /* Full width */
+      }
