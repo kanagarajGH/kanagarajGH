@@ -21,10 +21,6 @@
         background-color: #f8fafc;
       }
 
-      .login-gradient {
-        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-      }
-
       .sidebar {
         transition: all 0.3s ease;
       }
@@ -54,328 +50,236 @@
   </head>
   <body class="bg-gray-50">
     <div id="app">
-      <!-- Login Page -->
-      <div
-        id="loginPage"
-        class="min-h-screen flex items-center justify-center login-gradient"
-      >
-        <div
-          class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-xl"
-          data-aos="zoom-in"
-        >
-          <div class="text-center">
-            <div
-              class="mx-auto h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center mb-4"
-            >
-              <i class="fas fa-train text-blue-600 text-2xl"></i>
-            </div>
-            <h1 class="text-3xl font-extrabold text-gray-900">
-              Railway Monitoring
-            </h1>
-            <p class="mt-2 text-sm text-gray-600">Sign in to your account</p>
-          </div>
-          <form id="loginForm" class="mt-8 space-y-6">
-            <div class="rounded-md shadow-sm space-y-4">
-              <div>
-                <label for="employeeId" class="sr-only">Employee ID</label>
-                <input
-                  id="employeeId"
-                  name="employeeId"
-                  type="text"
-                  required
-                  class="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder="Employee ID"
-                />
-              </div>
-              <div>
-                <label for="password" class="sr-only">Password</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  class="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <input
-                  id="rememberMe"
-                  name="rememberMe"
-                  type="checkbox"
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label
-                  for="rememberMe"
-                  class="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
-
-              <div class="text-sm">
-                <a
-                  href="#"
-                  class="font-medium text-blue-600 hover:text-blue-500"
-                >
-                  Forgot your password?
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
-          <div
-            id="loginError"
-            class="hidden text-sm text-red-600 text-center"
-          ></div>
-        </div>
-      </div>
-
       <!-- Main Application Layout -->
-      <div id="mainApp" class="hidden">
-        <div class="flex h-screen overflow-hidden">
-          <!-- Sidebar -->
-          <aside class="w-64 bg-gray-900 text-white flex flex-col">
-            <div class="p-4 border-b border-gray-800">
-              <div class="relative">
-                <input
-                  type="text"
-                  id="searchInput"
-                  placeholder="Search trains..."
-                  class="w-full bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10"
-                />
-                <i
-                  class="fas fa-search absolute left-3 top-3 text-gray-400"
-                ></i>
-                <button
-                  id="clearSearch"
-                  class="hidden absolute right-3 top-3 text-gray-400 hover:text-white"
-                >
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-              <div
-                id="searchResults"
-                class="hidden mt-2 bg-gray-800 rounded-md overflow-hidden"
-              ></div>
-            </div>
-
-            <nav class="flex-1 overflow-y-auto">
-              <a
-                href="#dashboard"
-                class="flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-700"
-              >
-                <i class="fas fa-tachometer-alt mr-3"></i>
-                Dashboard
-              </a>
-              <a
-                href="#train-tracking"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-train mr-3"></i>
-                Train Tracking
-              </a>
-              <a
-                href="#station-management"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-building mr-3"></i>
-                Station Management
-              </a>
-              <a
-                href="#route-planning"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-route mr-3"></i>
-                Route Planning
-              </a>
-              <a
-                href="#maintenance"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-wrench mr-3"></i>
-                Maintenance
-              </a>
-              <a
-                href="#alerts"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <div class="relative">
-                  <i class="fas fa-bell mr-3"></i>
-                  <span
-                    class="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center text-xs text-white"
-                    >3</span
-                  >
-                </div>
-                Alerts
-              </a>
-              <a
-                href="#analytics"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-chart-bar mr-3"></i>
-                Analytics
-              </a>
-              <a
-                href="#settings"
-                class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                <i class="fas fa-cog mr-3"></i>
-                Settings
-              </a>
-            </nav>
-
-            <div class="p-4 border-t border-gray-800">
-              <div class="flex items-center">
-                <div
-                  class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold"
-                >
-                  JD
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm font-medium text-white">Kanagaraj</p>
-                  <p class="text-xs text-gray-400">Admin</p>
-                </div>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Main Content -->
-          <div class="flex-1 flex flex-col overflow-hidden">
-            <div class="flex-1 overflow-hidden">
-              <div id="mapContainer" class="h-full relative">
-                <!-- Railway Track Map Container -->
-                <div id="trackMapContainer" class="h-full w-full hidden">
-                  <iframe
-                    src="C:\Users\kanag\Downloads\SIH\railways_Track_map_All_india.html"
-                    class="w-full h-full border-0"
-                  >
-                  </iframe>
-                </div>
-
-                <div class="absolute top-20 right-4 z-10 space-y-2">
-                  <button
-                    id="fullscreenToggle"
-                    class="bg-white p-2 rounded-md shadow-md hover:bg-gray-100"
-                  >
-                    <i class="fas fa-expand"></i>
-                  </button>
-                  <div class="bg-white p-1 rounded-md shadow-md flex flex-col">
-                    <button id="zoomIn" class="p-1 hover:bg-gray-100 rounded">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                    <button id="zoomOut" class="p-1 hover:bg-gray-100 rounded">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button
-                      id="resetZoom"
-                      class="p-1 hover:bg-gray-100 rounded"
-                    >
-                      <i class="fas fa-home"></i>
-                    </button>
-                  </div>
-                </div>
-                <div id="mapContent" class="h-full w-full"></div>
-              </div>
-            </div>
-
-            <!-- Bottom Menu -->
-            <div
-              class="bg-white border-t border-gray-200 flex justify-around py-2"
-            >
-              <!-- <button class="flex flex-col items-center px-4 py-2 text-sm font-medium text-blue-600">
-                            <i class="fas fa-subway mb-1"></i>
-                            <span>Track Map</span>
-                        </button> -->
+      <div id="mainApp" class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex flex-col">
+          <div class="p-4 border-b border-gray-800">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search trains..."
+                class="w-full bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10"
+              />
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
               <button
-                id="TrackMap"
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-blue-600"
-              >
-                <i class="fas fa-subway mb-1"></i>
-                <span>Track Map</span>
-              </button>
-
-              <a href="C:\Users\kanag\Downloads\SIHRailwayMonitoring\railway_marl_map.html">
-                <button
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                <i class="fas fa-location-arrow mb-1"></i>
-                <span>Movement</span>
-              </button>
-              </a>
-              
-              <button
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                <i class="fas fa-map-marker-alt mb-1"></i>
-                <span>Stations</span>
-              </button>
-              <button
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                <i class="fas fa-cloud-rain mb-1"></i>
-                <span>Weather</span>
-              </button>
-              <button
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                <i class="fas fa-directions mb-1"></i>
-                <span>Routes</span>
-              </button>
-              <button
-                id="chatToggle"
-                class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-              >
-                <i class="fas fa-comments mb-1"></i>
-                <span>Chat</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Chat Panel -->
-          <div
-            id="chatPanel"
-            class="fixed inset-y-0 right-0 w-80 bg-white shadow-lg transform translate-x-full"
-          >
-            <div class="flex items-center justify-between p-4 border-b">
-              <h3 class="text-lg font-medium">Support Chat</h3>
-              <button
-                id="closeChatBtn"
-                class="text-gray-500 hover:text-gray-700"
+                id="clearSearch"
+                class="hidden absolute right-3 top-3 text-gray-400 hover:text-white"
               >
                 <i class="fas fa-times"></i>
               </button>
             </div>
-            <div class="flex flex-col h-full">
-              <div id="chatHistory" class="flex-1 p-4 overflow-y-auto">
-                <!-- Chat messages will appear here -->
+            <div
+              id="searchResults"
+              class="hidden mt-2 bg-gray-800 rounded-md overflow-hidden"
+            ></div>
+          </div>
+
+          <nav class="flex-1 overflow-y-auto">
+            <a
+              href="#dashboard"
+              class="flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-700"
+            >
+              <i class="fas fa-tachometer-alt mr-3"></i>
+              Dashboard
+            </a>
+            <a
+              href="#train-tracking"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-train mr-3"></i>
+              Train Tracking
+            </a>
+            <a
+              href="#station-management"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-building mr-3"></i>
+              Station Management
+            </a>
+            <a
+              href="#route-planning"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-route mr-3"></i>
+              Route Planning
+            </a>
+            <a
+              href="#maintenance"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-wrench mr-3"></i>
+              Maintenance
+            </a>
+            <a
+              href="#alerts"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <div class="relative">
+                <i class="fas fa-bell mr-3"></i>
+                <span
+                  class="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center text-xs text-white"
+                  >3</span
+                >
               </div>
-              <div class="p-4 border-t">
-                <div class="flex">
-                  <input
-                    type="text"
-                    id="chatInput"
-                    placeholder="Type your message..."
-                    class="flex-1 px-3 py-2 border rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  />
-                  <button
-                    id="sendChatBtn"
-                    class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700"
-                  >
-                    <i class="fas fa-paper-plane"></i>
+              Alerts
+            </a>
+            <a
+              href="#analytics"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-chart-bar mr-3"></i>
+              Analytics
+            </a>
+            <a
+              href="#settings"
+              class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              <i class="fas fa-cog mr-3"></i>
+              Settings
+            </a>
+          </nav>
+
+          <div class="p-4 border-t border-gray-800">
+            <div class="flex items-center">
+              <div
+                class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold"
+              >
+                JD
+              </div>
+              <div class="ml-3">
+                <p class="text-sm font-medium text-white">Kanagaraj</p>
+                <p class="text-xs text-gray-400">Admin</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+          <div class="flex-1 overflow-hidden">
+            <div id="mapContainer" class="h-full relative">
+              <!-- Railway Track Map Container -->
+              <div id="trackMapContainer" class="h-full w-full hidden">
+                <iframe
+                  src="C:\Users\kanag\Downloads\SIH\railways_Track_map_All_india.html"
+                  class="w-full h-full border-0"
+                >
+                </iframe>
+              </div>
+
+              <div class="absolute top-20 right-4 z-10 space-y-2">
+                <button
+                  id="fullscreenToggle"
+                  class="bg-white p-2 rounded-md shadow-md hover:bg-gray-100"
+                >
+                  <i class="fas fa-expand"></i>
+                </button>
+                <div class="bg-white p-1 rounded-md shadow-md flex flex-col">
+                  <button id="zoomIn" class="p-1 hover:bg-gray-100 rounded">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button id="zoomOut" class="p-1 hover:bg-gray-100 rounded">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button id="resetZoom" class="p-1 hover:bg-gray-100 rounded">
+                    <i class="fas fa-home"></i>
                   </button>
                 </div>
+              </div>
+              <div id="mapContent" class="h-full w-full"></div>
+            </div>
+          </div>
+
+          <!-- Bottom Menu -->
+          <div
+            class="bg-white border-t border-gray-200 flex justify-around py-2"
+          >
+            <button
+              id=""
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-blue-600"
+            >
+              <i class="fas fa-subway mb-1"></i>
+              <span>Track Map</span>
+            </button>
+
+            <button
+              id="Movement"
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
+            >
+              <i class="fas fa-location-arrow mb-1"></i>
+              <span>Movement</span>
+            </button>
+
+            <button
+            id="TrackMap"
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
+            >
+              <i class="fas fa-map-marker-alt mb-1"></i>
+              <span>Stations</span>
+            </button>
+            <button
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
+            >
+              <i class="fas fa-cloud-rain mb-1"></i>
+              <span>Weather</span>
+            </button>
+            <button
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
+            >
+              <i class="fas fa-directions mb-1"></i>
+              <span>Routes</span>
+            </button>
+            <button
+              id="chatToggle"
+              class="flex flex-col items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
+            >
+              <i class="fas fa-comments mb-1"></i>
+              <span>Chat</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Map Movement map container -->
+        <!-- Movement Map -->
+        <div id="movementContainer" class="h-full w-full hidden">
+          <iframe
+            src="railway_marl_map.html"
+            class="w-full h-full border-0"
+          ></iframe>
+          
+        </div>
+
+        <!-- Chat Panel -->
+        <div
+          id="chatPanel"
+          class="fixed inset-y-0 right-0 w-80 bg-white shadow-lg transform translate-x-full"
+        >
+          <div class="flex items-center justify-between p-4 border-b">
+            <h3 class="text-lg font-medium">Support Chat</h3>
+            <button id="closeChatBtn" class="text-gray-500 hover:text-gray-700">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="flex flex-col h-full">
+            <div id="chatHistory" class="flex-1 p-4 overflow-y-auto">
+              <!-- Chat messages will appear here -->
+            </div>
+            <div class="p-4 border-t">
+              <div class="flex">
+                <input
+                  type="text"
+                  id="chatInput"
+                  placeholder="Type your message..."
+                  class="flex-1 px-3 py-2 border rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+                <button
+                  id="sendChatBtn"
+                  class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700"
+                >
+                  <i class="fas fa-paper-plane"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -409,15 +313,6 @@
           document
             .getElementById("chatPanel")
             .classList.add("translate-x-full");
-        });
-
-      // Simulate login
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          document.getElementById("loginPage").classList.add("hidden");
-          document.getElementById("mainApp").classList.remove("hidden");
         });
     </script>
 
@@ -508,6 +403,122 @@
                   `Error attempting to enable fullscreen: ${err.message}`
                 );
               });
+            } else {
+              document.exitFullscreen();
+            }
+          });
+      }
+    </script>
+
+    <script>
+      AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+      feather.replace();
+
+      // Chat toggle
+      document.getElementById("chatToggle").addEventListener("click", () => {
+        document
+          .getElementById("chatPanel")
+          .classList.toggle("translate-x-full");
+      });
+      document.getElementById("closeChatBtn").addEventListener("click", () => {
+        document.getElementById("chatPanel").classList.add("translate-x-full");
+      });
+
+      // Map container buttons
+      const trackMapBtn = document.getElementById("TrackMap");
+      const movementBtn = document.getElementById("Movement");
+      const googleMapBtn = document.getElementById("GoogleMapBtn");
+
+      const trackMapContainer = document.getElementById("trackMapContainer");
+      const movementContainer = document.getElementById("movementContainer");
+      const mapContent = document.getElementById("mapContent");
+
+      // Show Track Map
+      trackMapBtn.addEventListener("click", () => {
+        trackMapContainer.classList.remove("hidden");
+        movementContainer.classList.add("hidden");
+        mapContent.style.display = "none";
+      });
+
+      // Show Movement Map
+      movementBtn.addEventListener("click", () => {
+        trackMapContainer.classList.add("hidden");
+        movementContainer.classList.remove("hidden");
+        mapContent.style.display = "none";
+      });
+
+      // Show Google Map
+      googleMapBtn.addEventListener("click", () => {
+        trackMapContainer.classList.add("hidden");
+        movementContainer.classList.add("hidden");
+        mapContent.style.display = "block";
+      });
+    </script>
+
+    <!-- Google Maps API -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKF79rA3Jm1orBCvq9SRE0JNEKQMOB6Ac&callback=initMap"
+      async
+      defer
+    ></script>
+
+    <script>
+      function initMap() {
+        const location = { lat: 28.6139, lng: 77.209 }; // New Delhi example
+        const map = new google.maps.Map(document.getElementById("mapContent"), {
+          zoom: 12,
+          center: location,
+          styles: [
+            { featureType: "poi", stylers: [{ visibility: "off" }] },
+            { featureType: "transit.station", stylers: [{ visibility: "on" }] },
+          ],
+        });
+
+        new google.maps.Marker({
+          position: location,
+          map: map,
+          title: "New Delhi Station",
+          icon: {
+            url: "https://maps.google.com/mapfiles/ms/icons/rail.png",
+            scaledSize: new google.maps.Size(32, 32),
+          },
+        });
+
+        const railwayLineCoordinates = [
+          { lat: 28.6139, lng: 77.209 },
+          { lat: 28.6339, lng: 77.229 },
+          { lat: 28.6539, lng: 77.249 },
+          { lat: 28.6739, lng: 77.269 },
+        ];
+
+        const railwayLine = new google.maps.Polyline({
+          path: railwayLineCoordinates,
+          geodesic: true,
+          strokeColor: "#3b82f6",
+          strokeOpacity: 1.0,
+          strokeWeight: 4,
+        });
+        railwayLine.setMap(map);
+
+        // Zoom & fullscreen controls
+        document
+          .getElementById("zoomIn")
+          .addEventListener("click", () => map.setZoom(map.getZoom() + 1));
+        document
+          .getElementById("zoomOut")
+          .addEventListener("click", () => map.setZoom(map.getZoom() - 1));
+        document.getElementById("resetZoom").addEventListener("click", () => {
+          map.setZoom(12);
+          map.setCenter(location);
+        });
+        document
+          .getElementById("fullscreenToggle")
+          .addEventListener("click", () => {
+            const mapContainer = document.getElementById("mapContainer");
+            if (!document.fullscreenElement) {
+              mapContainer
+                .requestFullscreen()
+                .catch((err) => console.error(`Error: ${err.message}`));
             } else {
               document.exitFullscreen();
             }
